@@ -1,0 +1,21 @@
+#! /bin/bash
+if [ -f ./caculation.log ];then
+	rm ./caculation.log
+	touch ./caculation.log
+fi
+
+while true; do
+
+a=$[($RANDOM % 9) +1]
+b=$[($RANDOM % 9) +1]
+
+read -p " $a X $b = " answer
+
+if [ $answer -eq $(expr $a \* $b) ]; then
+	echo "Yes, your answer is correct"
+	echo "$a X $b = $answer;y" >>caculation.log
+elif [ $answer -ne $(expr $a \* $b) ]; then
+	echo "No, your answer is incorrect, please try again."
+	echo "$a X $b = $answer;x" >>caculation.log 
+fi
+done
