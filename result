@@ -1,0 +1,10 @@
+#!/bin/bash
+correct=$(cat caculation.log | grep "y" | wc -l)
+incorrect=$(cat caculation.log | grep "x" | wc -l)
+all=$(cat caculation.log | wc -l)
+
+echo "Total questions: $all
+Correct: $correct
+Incorrect: $incorrect
+Percentage: $(echo "scale=2;$correct / $all*100" | bc)%"
+

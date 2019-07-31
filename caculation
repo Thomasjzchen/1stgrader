@@ -1,4 +1,5 @@
 #! /bin/bash
+clear
 if [ -f ./caculation.log ];then
 	rm ./caculation.log
 	touch ./caculation.log
